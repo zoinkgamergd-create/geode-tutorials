@@ -1,7 +1,22 @@
 {
-  "geode": "3.0.0",
-  "id": "colaborador.click_animations",
-  "version": "1.0.0",
-  "name": "Click Animations",
-  "developer": "Colaborador"
+    "geode": "4.0.0",
+    "gd": {
+        "win": "2.2074",
+        "android": "2.2074",
+        "mac": "2.2074"
+    },
+    "version": "v1.0.0",
+    "id": "tuusuario.click_animations",
+    "name": "Click Animations",
+    "developer": "tuusuario",
+    "description": "Reproduce animaciones de click para P1/P2/dual",
+    "resources": {
+        "spritesheets": {
+            "ClickAnimSheet": [
+                "resources/p1_frame_*.png",
+                "resources/p2_frame_*.png",
+                "resources/dual_frame_*.png"
+            ]
+        }
+    }
 }
