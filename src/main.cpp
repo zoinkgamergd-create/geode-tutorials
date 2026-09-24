@@ -1,11 +1,25 @@
-#include <Geode/Geode.hpp>
-#include <Geode/modify/GJBaseGameLayer.hpp>
+name: Build
 
-using namespace geode::prelude;
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 
-class $modify(MyBaseGameLayer, GJBaseGameLayer) {
-    void pushButton(PlayerButton btn, bool isPlayer2) {
-        GJBaseGameLayer::pushButton(btn, isPlayer2);
-        // Aquí irá tu lógica de animaciones una vez que confirmemos que compila
-    }
-};
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build mod
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          combine: true
